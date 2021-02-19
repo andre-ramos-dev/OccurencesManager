@@ -1,0 +1,18 @@
+version: '3'
+services:
+  api:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000 --settings=core.settings
+    env_file: .env
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgis
+
+  postgis:
+    image: kartoza/postgis:12.0
+    env_file: .env
+    ports:
+      - "5433:5432"
