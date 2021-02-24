@@ -11,9 +11,6 @@ from occurrences.models import Occurrence
 
 
 class OccurrenceViewSet(viewsets.ModelViewSet):
-    """
-     This viewset automatically provides `list`, `create`, `retrieve`, `update` and `destroy` actions.
-    """
     queryset = Occurrence.objects.all()
     serializer_class = OccurrenceSerializer
     filter_backends = (DjangoFilterBackend,)
