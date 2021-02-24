@@ -1,8 +1,6 @@
 from django.contrib.auth import get_user_model, authenticate
 from rest_framework import serializers, exceptions
 
-from occurrences.models import Occurrence
-
 User = get_user_model()
 
 
@@ -56,12 +54,3 @@ class UserCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'password')
-
-
-class AuthorSerializer(serializers.ModelSerializer):
-    # author = serializers.CharField(source='auth.username')
-    # occurrences = serializers.PrimaryKeyRelatedField(many=True, queryset=Occurrence.objects.all())
-
-    class Meta:
-        model = User
-        fields = ('id', 'username')

@@ -1,10 +1,10 @@
 from django.contrib.auth import get_user_model, login
-from rest_framework import permissions, status, viewsets
+from rest_framework import permissions, status
 from rest_framework.generics import CreateAPIView, GenericAPIView
-from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
-from .serializers import UserCreateSerializer, UserLoginSerializer, AuthorSerializer
+from .serializers import UserCreateSerializer, UserLoginSerializer
 
 
 class CreateUserView(CreateAPIView):
@@ -37,12 +37,3 @@ class LoginUserView(GenericAPIView):
         if self.user:
             login(request=request, user=self.user)
         return self.get_response()
-
-
-class AuthorViewSet(viewsets.ReadOnlyModelViewSet):
-    """
-    This viewset automatically provides `list` and `detail` actions.
-    """
-    queryset = get_user_model().objects.all()
-    serializer_class = AuthorSerializer
-    permission_classes = [IsAuthenticated]
