@@ -5,7 +5,7 @@ from rest_framework.routers import DefaultRouter
 from occurrences.api.views import OccurrenceViewSet
 
 router = DefaultRouter()
-router.register(r'occurrences', OccurrenceViewSet)
+router.register(r'occurrences', OccurrenceViewSet, basename='occurrences')
 
 urlpatterns = [
     path('', include(router.urls)),

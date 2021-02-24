@@ -51,8 +51,22 @@ Delete Occurrence: ```http://0.0.0.0:8000/api/auth/occurrences/1/``` DELETE
 Filter Occurrences: ```http://0.0.0.0:8000/api/occurrences/?author=2&category=1&lng=7.5556&lat=37.0109&radius=10``` GET
 
 
+#Run Pytests
 
+Build docker
+ - ```docker-compose build```
 
+Up the db container
+ - ```docker-compose up postgis```
+ 
+Up the api container
+ - ```docker-compose up api```
+ 
+Run Migrations
+ - ```docker-compose exec api python manage.py migrate```
 
+Run Pytests
+ - ```docker-compose exec api pytest```
+ 
 
 
