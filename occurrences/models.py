@@ -19,13 +19,13 @@ class Category(models.Model):
 
 
 class Occurrence(models.Model):
+    author = models.ForeignKey(User, related_name='author_occurrences', on_delete=models.CASCADE),
+    category = models.ForeignKey(Category, related_name='category_occurences', on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
     description = models.TextField(max_length=500, blank=True, default='')
     location = models.PointField()
-    author = models.ForeignKey(User, related_name='author_occurrences', on_delete=models.CASCADE),
-    created = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(choices=STATUS_CHOICES, max_length=50, default='to_validate')
     updated = models.DateTimeField(auto_now=True)
-    status = models.CharField(choices=STATUS_CHOICES, max_length=50, default='waiting_validation')
-    category = models.ForeignKey(Category, related_name='category_occurences', on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Occurrence'
