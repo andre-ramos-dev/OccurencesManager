@@ -29,7 +29,9 @@ Select the file: ```OccurrrencesManager.postman_collection.json``` located on pr
 
 Go on right corner and press the "eye" button, and press on Add button
 
-Create two variables, username and password. The values are the same of the user registered ( you can switch users here )
+Create two variables, username and password. The values are the same of the user registered ( you can switch users here)
+
+After create a new env, don't forget to select him! Small box next to the eye button!
 
 Now you are ready to enjoy testing the api!
 
