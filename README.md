@@ -53,7 +53,7 @@ Delete Occurrence: ```http://0.0.0.0:8000/api/auth/occurrences/1/``` DELETE
 Filter Occurrences: ```http://0.0.0.0:8000/api/occurrences/?author=2&category=1&lng=7.5556&lat=37.0109&radius=10``` GET
 
 
-#Run Pytests
+## Run Pytests
 
 Build docker
  - ```docker-compose build```
